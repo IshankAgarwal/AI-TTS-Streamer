@@ -4,7 +4,7 @@
 venv/
 .env/
 
-# --- Models (large files you don't want on GitHub) ---
+# --- Models (large files -  Download manually) ---
 models/
 voice_models/
 
@@ -22,7 +22,7 @@ __pycache__/
 # --- VSCode settings ---
 .vscode/
 
-# --- Optional: ignore your old test files ---
+# ---  Ignoring  old test files ---
 piper_testing.py
 coqui_tts.py
 piper_consumer_producer.py
