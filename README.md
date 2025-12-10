@@ -6,59 +6,56 @@ Convert PDFs to natural-sounding speech using a real-time producer–consumer TT
 This project started as a simple pyttsx3 (robotic voice) reader, then evolved into a much more advanced low-latency streaming TTS system using Piper, supporting multiple high-quality models (English, Hindi, etc.).
 Future versions may include Streamlit UI or even better models.
 
-**🚀 Features
-✔ Real-time TTS streaming (producer–consumer architecture)**
+## 🚀 Features
+## ✔ Real-time TTS streaming (producer–consumer architecture)
 
-Text is synthesized into audio chunks while streaming playback continues.
+- Text is synthesized into audio chunks while streaming playback continues.
 
-Smooth, low-latency, natural speech.
+- Smooth, low-latency, natural speech.
 
-Handles long text without blocking.
+- Handles long text without blocking.
 
-**✔ Supports multiple Piper voice models**
+## ✔ Supports multiple Piper voice models**
 
-English
+- English/ Hindi Language models
 
-Hindi
+- Any Piper-compatible .onnx model
 
-Any Piper-compatible .onnx model
+## ✔ PDF → Text → Audio**
 
-**✔ PDF → Text → Audio**
+- Reads PDF text line-by-line.
 
-Reads PDF text line-by-line.
+- Sends to the TTS engine in real time.
 
-Sends to the TTS engine in real time.
+- Avoids memory spikes.
 
-Avoids memory spikes.
+## ✔ Controls**
 
-**✔ Controls**
+- Pause playback
 
-Pause playback
+- Resume playback
 
-Resume playback
+- Stop (immediately ends threads safely)
 
-Stop (immediately ends threads safely)
+- Quit the whole application gracefully
 
-Quit the whole application gracefully
+## ✔ Thread-safe, robust design**
 
-**✔ Thread-safe, robust design**
+- Producer thread → generates audio
 
-Producer thread → generates audio
+- Consumer thread → plays audio
 
-Consumer thread → plays audio
+* Avoids:
+  - skipped lines
 
-Avoids:
+  - cut words
 
-skipped lines
+  - uneven gaps
 
-cut words
+  - deadlocks (stuck exit)
 
-uneven gaps
-
-deadlocks (stuck exit)
-
-**📁 Project Structure**
-basic_tts/
+## 📁 Project Structure
+`basic_tts/
 │
 ├── src/
 │   ├── piper_consumer_producer2.py     # main TTS engine
@@ -69,40 +66,40 @@ basic_tts/
 │
 ├── output.wav
 ├── README.md
-└── .gitignore
+└── .gitignore`
 
-**🛠 Installation**
+## 🛠 Installation
 1. Create virtual environment
-python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
+   - `python -m venv venv`
+   - `#Windows: venv\Scripts\activate`
 
-2. Install dependencies
-pip install -r requirements.txt
+3. Install dependencies
+   - `   pip install -r requirements.txt`
 
-3. Download Piper voice models
+4. Download Piper voice models
 
-Place them inside:
+   - Place them inside:
 
-basic_tts/voice_models/
-
-
-**Example models:**
-
-piper_voices_en_US_ljspeech_medium
-
-piper_voices_hi_in_priyamvada_medium
-
-**▶️ Usage**
-Run the main TTS engine
-python piper_consumer_producer2.py
+     - `basic_tts/voice_models/`
 
 
-You will see runtime controls:
+### Example models:
 
-[p]ause  [r]esume  [s]top  [q]uit:
+- piper_voices_en_US_ljspeech_medium
 
-**🎧 Architecture (Simplified)**
-        +-------------------+
+- piper_voices_hi_in_priyamvada_medium
+
+### ▶️ Usage
+- Run the main TTS engine
+  - `python piper_consumer_producer2.py`
+
+
+- You will see runtime controls:
+
+  - `[p]ause  [r]esume  [s]top  [q]uit:`
+
+## 🎧 Architecture (Simplified)
+`        +-------------------+
         |   PDF Reader      |
         +---------+---------+
                   |
@@ -118,4 +115,4 @@ You will see runtime controls:
         +---------+---------+
         |   Consumer Thread |
         | (sounddevice out) |
-        +-------------------+
+        +-------------------+`
