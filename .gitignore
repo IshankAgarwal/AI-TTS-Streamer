@@ -1,0 +1,36 @@
+# --- Virtual environments ---
+.general_venv/
+.general_venv310/
+venv/
+.env/
+
+# --- Models (large files you don't want on GitHub) ---
+models/
+voice_models/
+
+# --- Logs ---
+*.log
+
+# --- Audio output ---
+*.wav
+*.mp3
+
+# --- Python cache ---
+__pycache__/
+*.pyc
+
+# --- VSCode settings ---
+.vscode/
+
+# --- Optional: ignore your old test files ---
+piper_testing.py
+coqui_tts.py
+piper_consumer_producer.py
+test_sentence.wav
+temp_sentence.wav
+new_tts.ipynb
+download_voice_huggingface.py
+rough.py
+professional_audio_piper_tts.py
+piper_tts.py
+
