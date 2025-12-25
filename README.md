@@ -55,7 +55,8 @@ Future versions may include Streamlit UI or even better models.
   - deadlocks (stuck exit)
 
 ## 📁 Project Structure
-`basic_tts/
+`
+basic_tts/
 │
 ├── src/
 │   ├── piper_consumer_producer2.py     # main TTS engine
@@ -66,12 +67,13 @@ Future versions may include Streamlit UI or even better models.
 │
 ├── output.wav
 ├── README.md
-└── .gitignore`
+└── .gitignore
+`
 
 ## 🛠 Installation
 1. Create virtual environment
-   - `python -m venv venv`
-   - `#Windows: venv\Scripts\activate`
+   - `python -m venv .venv`
+   - `.venv\Scripts\activate`
 
 3. Install dependencies
    - `   pip install -r requirements.txt`
@@ -99,7 +101,7 @@ Future versions may include Streamlit UI or even better models.
   - `[p]ause  [r]esume  [s]top  [q]uit:`
 
 ## 🎧 Architecture (Simplified)
-`        +-------------------+
+`       +-------------------+
         |   PDF Reader      |
         +---------+---------+
                   |
@@ -115,4 +117,4 @@ Future versions may include Streamlit UI or even better models.
         +---------+---------+
         |   Consumer Thread |
         | (sounddevice out) |
-        +-------------------+`
+        +-------------------+      `
