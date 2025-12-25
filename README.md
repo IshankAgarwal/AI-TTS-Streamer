@@ -1,9 +1,9 @@
 # AI-TTS-Streamer
-Real time Text to speech Program using AI models to read docs/pdfs.
+Real time Text to speech Program using AI models(Piper AI) to read docs/pdfs.
 
-Convert PDFs to natural-sounding speech using a real-time producer–consumer TTS engine (Piper AI).
+Convert PDFs to natural-sounding speech using a real-time producer–consumer TTS engine works on multiple threads running. Have features to pause, resume, and quit Audio.
 
-This project started as a simple pyttsx3 (robotic voice) reader, then evolved into a much more advanced low-latency streaming TTS system using Piper, supporting multiple high-quality models (English, Hindi, etc.).
+This project started as a simple pyttsx3 (robotic voice) reader, then evolved into a much more advanced low-latency streaming TTS system using Piper, supporting multiple high-quality models in languages(English, Hindi, etc.).
 Future versions may include Streamlit UI or even better models.
 
 ## 🚀 Features
@@ -15,13 +15,13 @@ Future versions may include Streamlit UI or even better models.
 
 - Handles long text without blocking.
 
-## ✔ Supports multiple Piper voice models**
+## ✔ Supports multiple Piper voice models
 
 - English/ Hindi Language models
 
 - Any Piper-compatible .onnx model
 
-## ✔ PDF → Text → Audio**
+## ✔ PDF → Text → Audio
 
 - Reads PDF text line-by-line.
 
@@ -29,7 +29,7 @@ Future versions may include Streamlit UI or even better models.
 
 - Avoids memory spikes.
 
-## ✔ Controls**
+## ✔ Controls
 
 - Pause playback
 
@@ -39,7 +39,7 @@ Future versions may include Streamlit UI or even better models.
 
 - Quit the whole application gracefully
 
-## ✔ Thread-safe, robust design**
+## ✔ Thread-safe, robust design
 
 - Producer thread → generates audio
 
@@ -55,20 +55,19 @@ Future versions may include Streamlit UI or even better models.
   - deadlocks (stuck exit)
 
 ## 📁 Project Structure
-`
+```
 basic_tts/
 │
-├── src/
-│   ├── piper_consumer_producer2.py     # main TTS engine
-│   ├── pdf_reader.py                   # PDF text extraction (optional)
-│
-├── voice_models/                       # (ignored in git)
-├── models/                             # (ignored in git)
-│
-├── output.wav
+├── piper_consumer_producer2.py     # main TTS engine
+│── tts.py
+|
+├── voice_models/                   # (ignored in git)
+|── data/                           #(data folder having pdf/doc files)
+|
+|── requirements.txt
 ├── README.md
 └── .gitignore
-`
+```
 
 ## 🛠 Installation
 1. Create virtual environment
@@ -101,7 +100,8 @@ basic_tts/
   - `[p]ause  [r]esume  [s]top  [q]uit:`
 
 ## 🎧 Architecture (Simplified)
-`       +-------------------+
+```
+        +-------------------+
         |   PDF Reader      |
         +---------+---------+
                   |
@@ -117,4 +117,5 @@ basic_tts/
         +---------+---------+
         |   Consumer Thread |
         | (sounddevice out) |
-        +-------------------+      `
+        +-------------------+
+```
